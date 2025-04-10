@@ -1,21 +1,29 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchContacts } from '../../redux/contactsOps';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectError, selectLoading } from '../../redux/selectors';
+import { fetchAll } from '../../redux/contactsOps';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
-import styles from './App.module.css';
+import SearchBox from '../SearchBox/SearchBox';
+import style from './App.module.css';
 
 const App = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchAll());
   }, [dispatch]);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Книга контактів</h1>
+    <div className={style.wrap}>
+      <h1>Книга контактів</h1>
       <ContactForm />
+      <SearchBox />
+      {loading && !error && (
+        <b className={style.requestText}>Виконується запит...</b>
+      )}
       <ContactList />
     </div>
   );

@@ -1,15 +1,25 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+.wrap {
+    max-width: 768px;
+    margin: 40px auto;
     padding: 24px;
-    background-color: #fdfdfd;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fefefe;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.title {
+h1 {
     text-align: center;
     font-size: 32px;
-    color: #333;
     margin-bottom: 24px;
+    color: #333;
+}
+
+.requestText {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    font-size: 18px;
 }
